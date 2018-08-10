@@ -1,10 +1,9 @@
-# [YouTube, Theodore Anderson] ReactJS and PostgreSQL: Full Stack Application [ENG, 2017] 
+# [YouTube, Theodore Anderson] ReactJS and PostgreSQL: Full Stack Application [ENG, 2017]
 
 Project Updatable.
 
-**[YouTube]**
+**[YouTube]**  
 https://www.youtube.com/watch?v=2oAS7MtMwqA
-
 
 ---
 
@@ -14,7 +13,7 @@ I am working on ubuntu 18.04.1
     $ npx create-react-app countries
 
     $ mkdir pg-api && cd pg-api
-    $ npm init -y 
+    $ npm init -y
     $ touch server.js
     $ npm install --save body-parser morgan pg express cors
 
@@ -30,17 +29,36 @@ I am working on ubuntu 18.04.1
     postgres=# \c countriesdb;
     You are now connected to database "countries" as user "postgres".
 
+<br/>
+
+**UPD: I deceided use free postgres cloud service by elephantsql.com**
+
+(Do not want install postgresql locally)
+
+<br/>
+
     CREATE TABLE countries (
         id numeric primary key,
         country_name varchar NOT NULL,
         continent_name varchar NOT NULL
     );
 
+    INSERT INTO countries (id, country_name, continent_name) VALUES(1, 'Italy', 'Europe');
+    INSERT INTO countries (id, country_name, continent_name) VALUES(2, 'Germany', 'Europe');
 
 <br/>
 
+    # SELECT * from countries;
 
-    $ node server.js 
+    id | country_name | continent_name
+    ----+--------------+----------------
+    1 | Italy | Europe
+    2 | Germany | Europe
+    (2 rows)
+
+<br/>
+
+    $ node server.js
 
 <br/>
 
@@ -54,6 +72,11 @@ Time: ~ 27:30
 
 Time: ~ 53:00
 
+<br/>
+
+![Application](/img/pic3.png?raw=true)
+
+The End
 
 ---
 
