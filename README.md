@@ -46,6 +46,14 @@ I am working on ubuntu 18.04.1
 
 ![Application](/img/pic1.png?raw=true)
 
+Time: ~ 27:30
+
+<br/>
+
+![Application](/img/pic2.png?raw=true)
+
+Time: ~ 53:00
+
 
 ---
 
