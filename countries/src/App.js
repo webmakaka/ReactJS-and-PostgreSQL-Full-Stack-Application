@@ -60,6 +60,25 @@ class App extends Component {
 
   }
 
+  removeCountry(id) {
+    const countries = this.state.countries;
+    let country = countries.find(country => {
+      return country.id === id
+    });
+
+    const request = new Request('http://localhost:3000/api/remove/' + id, {
+      method: 'DELETE'
+    });
+
+    fetch(request)
+      .then(response => {
+        response.json()
+          .then(data => {
+            console.log(data);
+          })
+      })
+  }
+
   render() {
 
     let title = this.state.title;
@@ -72,8 +91,10 @@ class App extends Component {
           <input type="text" ref="country_name" placeholder="country_name" />
           <input type="text" ref="continent_name" placeholder="continent name" />
           <button onClick={this.addCountry.bind(this)}>Add Country</button>
-          <pre>{JSON.stringify(countries)}</pre>
         </form>
+        <ul>
+          {countries.map(country => <li key={country.id}>{country.country_name} {country.continent_name} <button onClick={this.removeCountry.bind(this, country.id)}> Remove</button> </li>)}
+        </ul>
       </div>
     );
   }

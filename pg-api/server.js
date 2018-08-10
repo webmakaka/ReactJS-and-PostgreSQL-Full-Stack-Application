@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const pg = require('pg');
+const cors = require('cors');
 const PORT = 3000;
 
 const pool = new pg.Pool({
@@ -15,6 +16,7 @@ const pool = new pg.Pool({
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -24,6 +26,20 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+});
+
+app.delete('/api/remove/:id', (req, res) => {
+  const id = req.params.id;
+
+  pool.connect((err, db, done) => {
+    if (err) {
+      return res.status(400).send(err);
+    }
+
+    /*     db.query('DELETE FROM countries WHERE country.id = ') */
+
+  })
+
 });
 
 app.get('/api/countries', (req, res) => {
@@ -64,7 +80,7 @@ app.post('/api/new-country', (req, res) => {
       }
 
       console.log('INSERTED DATA SUCCESS');
-      db.end();
+
       res.status(201).send({ message: 'Data inserted!' });
 
     })

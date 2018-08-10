@@ -16,7 +16,7 @@ I am working on ubuntu 18.04.1
     $ mkdir pg-api && cd pg-api
     $ npm init -y 
     $ touch server.js
-    $ npm install --save body-parser morgan pg express
+    $ npm install --save body-parser morgan pg express cors
 
 <br/>
 
