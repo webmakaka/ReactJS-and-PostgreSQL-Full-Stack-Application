@@ -1,0 +1,65 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "mocha": true
+  },
+  "globals": {
+    "angular": true,
+    "_": true,
+    "ClientApp": true,
+    "moment": true,
+    "EAN13": true,
+    "io": true,
+    "Uint8Array": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "babel",
+    "react"
+  ],
+  "extends": [
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "babel/no-invalid-this": 0,
+    "curly": "error",
+    "wrap-iife": [
+      "error",
+      "any"
+    ],
+    "no-caller": "error",
+    "no-empty": "error",
+    "no-undef": "error",
+    "no-unused-vars": "error",
+    "no-eq-null": "error",
+    "no-cond-assign": [
+      "error",
+      "except-parens"
+    ],
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
+    "react/prop-types": 0
+  }
+}
